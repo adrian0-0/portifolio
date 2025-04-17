@@ -3,19 +3,24 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { FaLinkedin, FaWhatsapp, FaWhatsappSquare } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
+import {
+  useTransitionRouter,
+  TransitionContext,
+} from "@/components/transiction";
 
 const Header = () => {
   const router = useRouter();
+  const { navigate } = useTransitionRouter();
 
   return (
     <header className="p-[1rem] flex xl:justify-between justify-center xl:flex-row flex-col items-center xl:mx-[5rem]">
-      <button
-        className="cursor-pointer xl:text-5xl text-3xl"
-        onClick={() => router.push("/")}
+      <div
+        onClick={() => navigate("/")}
+        className="z-10 cursor-pointer xl:text-5xl text-3xl select-none"
       >
         <span className="font-bold">{"<"}Adrian</span>
         <span className="font-thin">Vinícius{"/>"}</span>
-      </button>
+      </div>
       <nav className="flex flex-wrap gap-[1rem] z-10 mt-[1rem] ">
         <div className="hover:text-accent transition-all duration-300">
           <FaWhatsappSquare
