@@ -13,11 +13,12 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 
   return !isExcluded ? (
     <>
-      <TopLeftImg></TopLeftImg>
-      <Header></Header>
-      <NavBar></NavBar>
-      <Transiction></Transiction>
-      {children}
+      <Transiction>
+        <TopLeftImg></TopLeftImg>
+        <Header></Header>
+        <NavBar></NavBar>
+        {children}
+      </Transiction>
     </>
   ) : (
     children

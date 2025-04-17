@@ -28,7 +28,13 @@ export default function Home() {
           >
             Baixar CV
           </button>
-          <ProjectButton />
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", duration: 0.8, delay: 0.4 }}
+          >
+            <ProjectButton />
+          </motion.div>
         </div>
         <motion.div
           initial={{ opacity: 0, x: 100 }}
@@ -43,8 +49,10 @@ export default function Home() {
           <Image
             src="/devices-view.png"
             alt="Telas de apresentação do projeto gerenciador de estoque"
-            layout="fill"
-            objectFit="contain"
+            fill
+            sizes="100%"
+            style={{ objectFit: "contain" }}
+            priority
           ></Image>
         </motion.div>
       </div>
