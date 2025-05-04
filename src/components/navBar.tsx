@@ -5,6 +5,7 @@ import React from "react";
 import { IconType } from "react-icons";
 import { MdHome, MdPerson, MdPhone, MdTerminal, MdWork } from "react-icons/md";
 import { useTransitionRouter } from "@/components/transiction";
+import router from "next/navigation";
 
 interface INavData {
   name: string;
@@ -41,6 +42,7 @@ const navData: INavData[] = [
 ];
 
 const NavBar = () => {
+  const router = useRouter();
   const { navigate } = useTransitionRouter();
   const pathName = usePathname();
 
@@ -56,7 +58,7 @@ const NavBar = () => {
         {Array.isArray(navData) &&
           navData.map((navData) => (
             <div
-              onClick={() => navigate(navData.path)}
+              onClick={() => router.push(navData.path)}
               key={navData.name}
               className={`${
                 navData.path === pathName && "text-accent"

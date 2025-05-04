@@ -18,8 +18,8 @@ const Header = () => {
         onClick={() => navigate("/")}
         className="z-10 cursor-pointer xl:text-5xl text-3xl select-none"
       >
-        <span className="font-bold">{"<"}Adrian</span>
-        <span className="font-thin">Vinícius{"/>"}</span>
+        <span className="font-bold">{"<"}Header</span>
+        <span className="font-thin">Title{"/>"}</span>
       </div>
       <nav className="flex flex-wrap gap-[1rem] z-10 mt-[1rem] ">
         <div className="hover:text-accent transition-all duration-300">

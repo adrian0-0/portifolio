@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "@/animation/groovyWalk.json";
 import { usePathname, useRouter } from "next/navigation";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 type TransitionContextType = {
   navigate: (url: string) => void;
@@ -29,26 +29,29 @@ export const TransitionContext = createContext<TransitionContextType>({
 export const useTransitionRouter = () => useContext(TransitionContext);
 
 const Transiction = ({ children }: { children: React.ReactNode }) => {
-  const [isTransitionPath, setTransitionPath] = useState("");
-  const [transitionKey, setTransitionKey] = useState(0);
+  const [isBlurVisible, setBlurVisible] = useState(false);
+
   const router = useRouter();
   const currentPath = usePathname();
 
-  const navigate = async (url: string) => {
-    if (url === currentPath) {
-      return;
-    }
-    setTransitionPath(url);
-    setTransitionKey((prev) => prev + 1);
-  };
+  useEffect(() => {
+    setBlurVisible(true);
+    setTimeout(() => {}, 1000);
+    setBlurVisible(false);
+  }, [currentPath]);
 
   return (
-    <TransitionContext.Provider value={{ navigate }}>
-      <AnimatePresence
-        mode="wait"
-        onExitComplete={() => router.push(isTransitionPath)}
-      >
-        <motion.div key={transitionKey}>
+    <>
+      <AnimatePresence mode="wait">
+        <motion.div key={currentPath}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            variants={transitionVariants}
+            exit={{ opacity: 1 }}
+            transition={{ delay: 0, duration: 0 }}
+            className="fixed top-0 left-0 w-screen h-screen z-50 bg-[rgba(17,25,40,0.15)] flex backdrop-blur-lg backdrop-saturate-150 pointer-events-none"
+          />
+
           <motion.div
             className="fixed top-0 bottom-0 right-full w-screen h-screen z-50 bg-red-950 flex items-center justify-center flex-col"
             variants={transitionVariants}
@@ -81,7 +84,7 @@ const Transiction = ({ children }: { children: React.ReactNode }) => {
         </motion.div>
       </AnimatePresence>
       {children}
-    </TransitionContext.Provider>
+    </>
   );
 };
 
