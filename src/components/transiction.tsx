@@ -1,12 +1,12 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "@/animation/groovyWalk.json";
-import { usePathname, useRouter } from "next/navigation";
-import { createContext, useContext, useEffect, useState } from "react";
+import React from "react";
 
-type TransitionContextType = {
-  navigate: (url: string) => void;
-};
+interface ITransition {
+  children: React.ReactNode;
+  currentPath: string;
+}
 
 const transitionVariants = {
   initial: {
@@ -23,23 +23,7 @@ const transitionVariants = {
   },
 };
 
-export const TransitionContext = createContext<TransitionContextType>({
-  navigate: () => {},
-});
-export const useTransitionRouter = () => useContext(TransitionContext);
-
-const Transiction = ({ children }: { children: React.ReactNode }) => {
-  const [isBlurVisible, setBlurVisible] = useState(false);
-
-  const router = useRouter();
-  const currentPath = usePathname();
-
-  useEffect(() => {
-    setBlurVisible(true);
-    setTimeout(() => {}, 1000);
-    setBlurVisible(false);
-  }, [currentPath]);
-
+const Transiction = ({ children, currentPath }: ITransition) => {
   return (
     <>
       <AnimatePresence mode="wait">
@@ -49,7 +33,7 @@ const Transiction = ({ children }: { children: React.ReactNode }) => {
             variants={transitionVariants}
             exit={{ opacity: 1 }}
             transition={{ delay: 0, duration: 0 }}
-            className="fixed top-0 left-0 w-screen h-screen z-50 bg-[rgba(17,25,40,0.15)] flex backdrop-blur-lg backdrop-saturate-150 pointer-events-none"
+            className="fixed top-0 left-0 w-screen h-screen z-50 bg-[rgb(15,6,6)] flex pointer-events-none"
           />
 
           <motion.div

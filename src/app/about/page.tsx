@@ -1,87 +1,15 @@
 "use client";
 import React, { useState } from "react";
-import { FaAward } from "react-icons/fa";
-import Image from "next/image";
-import { MdArrowForwardIos } from "react-icons/md";
 import FooterVector from "@/components/footerVector";
-import { finished } from "stream";
-import { menu } from "framer-motion/client";
-import {
-  SiDocker,
-  SiHtml5,
-  SiJavascript,
-  SiMysql,
-  SiNestjs,
-  SiNextdotjs,
-  SiPostgresql,
-  SiPrisma,
-  SiReact,
-  SiSwagger,
-  SiTailwindcss,
-  SiTypescript,
-} from "react-icons/si";
+import { aboutData } from "@/configs/aboutData";
 import { motion } from "framer-motion";
+import LazyIcon from "@/components/lazyIcon";
 
 const About = () => {
   const [isIndex, setIndex] = useState(0);
 
-  const aboutData = [
-    {
-      title: "Certificações",
-      info: [
-        {
-          title: "Graduação: UNDB - Engenharia de Software",
-          stage: "Janeiro de 2025 - Concluído",
-        },
-        {
-          title: "AWS Certified Cloud Practitioner",
-          stage: "Outubro de 2024 - Concluído",
-        },
-        {
-          title: "Curso de Inglês Avançado Yázigi",
-          stage: "Junho de 2023 - Concluído",
-        },
-      ],
-    },
-    {
-      title: "SoftSkills",
-      info: [
-        { title: "Flexível" },
-        { title: "Organizado" },
-        { title: "Team work" },
-      ],
-    },
-    {
-      title: "Tecnologias",
-      info: [
-        {
-          title: "Frontend",
-          icons: [
-            SiReact,
-            SiNextdotjs,
-            SiTypescript,
-            SiHtml5,
-            SiJavascript,
-            SiTailwindcss,
-          ],
-        },
-        {
-          title: "Backend",
-          icons: [
-            SiNestjs,
-            SiDocker,
-            SiPostgresql,
-            SiMysql,
-            SiSwagger,
-            SiPrisma,
-          ],
-        },
-      ],
-    },
-  ];
-
   return (
-    <section className="flex justify-center xl:container xl:h-screen items-center xl:px-[6rem] xl:pb-[10rem]">
+    <section className="flex justify-center xl:container md:h-[50%] xl:h-full items-center xl:px-[6rem] xl:pb-[10rem] mb-[18rem]">
       <div className="flex xl:mt-[0rem] mt-[2rem] md:w-2/3 xl:w-full flex-col xl:flex-row flex-nowrap gap-[2rem]  xl:justify-between xl:items-start">
         <div className="container flex px-[1rem] flex-wrap gap-[2rem]">
           <motion.h2
@@ -106,9 +34,9 @@ const About = () => {
           </motion.p>
         </div>
         <motion.div
-          className="container flex flex-col w-full xl:max-w-[48%] xl:w-full gap-x-[0.5rem]"
-          initial={{ opacity: 0, x: 200 }}
-          animate={{ opacity: 1, x: 0 }}
+          className="container flex flex-col w-full xl:max-w-[48%] xl:w-full gap-x-[0.5rem] "
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", duration: 1.5, delay: 0.8 }}
         >
           {/* MENU */}
@@ -158,7 +86,11 @@ const About = () => {
                       <div className="flex gap-[1rem] w-full">
                         {"icons" in item &&
                           item.icons.map((Icon, iconIndex) => (
-                            <Icon key={`icon-${iconIndex}`} size={"1.5rem"} />
+                            <LazyIcon
+                              key={`icon-${iconIndex}`}
+                              iconName={Icon}
+                              size={"1.5rem"}
+                            />
                           ))}
                       </div>
                     </div>

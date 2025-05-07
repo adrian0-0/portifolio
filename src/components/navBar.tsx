@@ -4,8 +4,6 @@ import { useRouter, usePathname } from "next/navigation";
 import React from "react";
 import { IconType } from "react-icons";
 import { MdHome, MdPerson, MdPhone, MdTerminal, MdWork } from "react-icons/md";
-import { useTransitionRouter } from "@/components/transiction";
-import router from "next/navigation";
 
 interface INavData {
   name: string;
@@ -30,20 +28,14 @@ const navData: INavData[] = [
     icon: MdPhone,
   },
   {
-    name: "Experiência de trabalho",
-    path: "/workExperience",
-    icon: MdWork,
-  },
-  {
-    name: "Meus Projetos",
+    name: "Projetos",
     path: "/projects",
-    icon: MdTerminal,
+    icon: MdWork,
   },
 ];
 
 const NavBar = () => {
   const router = useRouter();
-  const { navigate } = useTransitionRouter();
   const pathName = usePathname();
 
   return (
