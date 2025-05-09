@@ -12,14 +12,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
   const isExcluded = excludedPaths.includes(currentPath);
 
   return !isExcluded ? (
-    <>
-      <Transiction>
-        <TopLeftImg></TopLeftImg>
-        <Header></Header>
-        <NavBar></NavBar>
-        {children}
-      </Transiction>
-    </>
+    <Transiction currentPath={currentPath}>{children}</Transiction>
   ) : (
     children
   );

@@ -2,36 +2,46 @@
 
 import { BgParticles } from "@/components/bgParticles";
 import ProjectButton from "@/components/projectButton";
+import TextAnimation from "@/components/textAnimation";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { BsArrowRight } from "react-icons/bs";
 
 export default function Home() {
   return (
-    <section className="h-full mt-[1rem] sm:mt-[0rem]">
-      <div className="flex xl:justify-between justify-center items-start md:mt-[0rem]  md:items-center text-center xl:text-left w-full h-full mx-auto container px-[5rem]">
+    <section className="xl:h-full md:h-[80%] mt-[1rem] md:mt-[0rem] md:pb-[0rem] pb-[8rem] overflow-hidden">
+      <div className="flex flex-wrap-reverse gap-[1.5rem] xl:flex-nowrap  md:gap-[2rem] xl:justify-between justify-center xl:h-full items-start md:mt-[0rem]  md:items-center text-center xl:text-left w-full mx-auto container xl:px-[5rem]">
         <div className="flex items-center xl:items-start flex-col flex-wrap gap-[1rem]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
+            className="xl:w-[670px] md:w-[500px]  w-[350px]"
           >
-            <h1 className="xl:text-5xl text-2xl font-medium">
-              <span className="text-accent">Desenvolvedor</span> FullStack
-            </h1>
+            <TextAnimation></TextAnimation>
           </motion.div>
           <p className="xl:text-xl ">
             Projeto e desenvolvo soluções inovadoras de software
           </p>
+
           <button
             onClick={() => window.open("/cv/CV.pdf")}
-            className="bg-gradient-to-r from-slate-950 to-gray-800 font-semibold text-white rounded-lg py-2 px-4 duration-300 hover:translate-y-[-2px] w-[200px] hover:shadow-2xl z-10"
+            className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex 
+                      items-center justify-center overflow-hidden hover:border-accent group z-10"
           >
-            Baixar CV
+            <BsArrowRight
+              className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 
+                        group-hover:opacity-100 transition-all duration-300 absolute text-[22px]"
+            ></BsArrowRight>
+            <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
+              Baixar CV
+            </span>
           </button>
+
           <motion.div
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", duration: 0.8, delay: 0.4 }}
+            transition={{ type: "spring", duration: 0.8, delay: 1 }}
           >
             <ProjectButton />
           </motion.div>
@@ -44,13 +54,12 @@ export default function Home() {
             delay: 1,
             ease: [0.25, 0.8, 0.25, 1],
           }}
-          className="relative hidden xl:block w-full h-full max-w-[1000px] z-10"
+          className="relative md:mt-[2rem] xl:mt-[0rem] w-full xl:h-full md:h-[300px] h-[200px] xl:max-w-[900px] md:max-w-[500px] max-w-[400px] xl:mr-[2rem] z-10"
         >
           <Image
             src="/devices-view.png"
             alt="Telas de apresentação do projeto gerenciador de estoque"
             fill
-            sizes="100%"
             style={{ objectFit: "contain" }}
             priority
           ></Image>

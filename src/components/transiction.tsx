@@ -1,12 +1,14 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "@/animation/groovyWalk.json";
-import { usePathname, useRouter } from "next/navigation";
-import { createContext, useContext, useState } from "react";
+import React from "react";
+import Header from "./header";
+import NavBar from "./navBar";
 
-type TransitionContextType = {
-  navigate: (url: string) => void;
-};
+interface ITransition {
+  children: React.ReactNode;
+  currentPath: string;
+}
 
 const transitionVariants = {
   initial: {
@@ -23,32 +25,19 @@ const transitionVariants = {
   },
 };
 
-export const TransitionContext = createContext<TransitionContextType>({
-  navigate: () => {},
-});
-export const useTransitionRouter = () => useContext(TransitionContext);
-
-const Transiction = ({ children }: { children: React.ReactNode }) => {
-  const [isTransitionPath, setTransitionPath] = useState("");
-  const [transitionKey, setTransitionKey] = useState(0);
-  const router = useRouter();
-  const currentPath = usePathname();
-
-  const navigate = async (url: string) => {
-    if (url === currentPath) {
-      return;
-    }
-    setTransitionPath(url);
-    setTransitionKey((prev) => prev + 1);
-  };
-
+const Transiction = ({ children, currentPath }: ITransition) => {
   return (
-    <TransitionContext.Provider value={{ navigate }}>
-      <AnimatePresence
-        mode="wait"
-        onExitComplete={() => router.push(isTransitionPath)}
-      >
-        <motion.div key={transitionKey}>
+    <>
+      <AnimatePresence mode="wait">
+        <motion.div key={currentPath}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            variants={transitionVariants}
+            exit={{ opacity: 1 }}
+            transition={{ delay: 0, duration: 0 }}
+            className="fixed top-0 left-0 w-screen h-screen z-50 bg-[rgb(15,6,6)] flex pointer-events-none"
+          />
+
           <motion.div
             className="fixed top-0 bottom-0 right-full w-screen h-screen z-50 bg-red-950 flex items-center justify-center flex-col"
             variants={transitionVariants}
@@ -80,8 +69,10 @@ const Transiction = ({ children }: { children: React.ReactNode }) => {
           ></motion.div>
         </motion.div>
       </AnimatePresence>
+      <Header></Header>
+      <NavBar></NavBar>
       {children}
-    </TransitionContext.Provider>
+    </>
   );
 };
 
