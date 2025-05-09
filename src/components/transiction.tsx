@@ -2,6 +2,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "@/animation/groovyWalk.json";
 import React from "react";
+import Header from "./header";
+import NavBar from "./navBar";
 
 interface ITransition {
   children: React.ReactNode;
@@ -67,6 +69,8 @@ const Transiction = ({ children, currentPath }: ITransition) => {
           ></motion.div>
         </motion.div>
       </AnimatePresence>
+      <Header></Header>
+      <NavBar></NavBar>
       {children}
     </>
   );

@@ -47,11 +47,8 @@
 }
 
 @layer base {
-  body {
-    background-image: url("/background.svg");
-  }
   .page {
-    @apply w-full h-screen md:overflow-hidden;
+    @apply w-full h-screen md:overflow-hidden bg-[url('/bg-black.svg')] bg-no-repeat md:bg-right-top;
   }
   .card {
     @apply backdrop-blur-lg backdrop-saturate-150 bg-[rgba(17,7,7,0.75)] rounded-xl border border-white/20;
@@ -74,7 +71,7 @@
   }
   .input,
   .textarea {
-    @apply bg-transparent outline-none focus:ring-1 focus:ring-accent border border-white/20 placeholder:text-white/30 placeholder:font-light;
+    @apply bg-transparent outline-none focus:ring-1 focus:ring-accent border border-white/20 placeholder:text-white/90 placeholder:font-light;
   }
   .textarea {
     @apply w-full h-[180px] p-6 rounded-lg resize-none;

@@ -9,7 +9,7 @@ import { BsArrowRight } from "react-icons/bs";
 
 export default function Home() {
   return (
-    <section className="xl:h-full md:h-[80%] mt-[1rem] md:mt-[0rem]">
+    <section className="xl:h-full md:h-[80%] mt-[1rem] md:mt-[0rem] md:pb-[0rem] pb-[8rem] overflow-hidden">
       <div className="flex flex-wrap-reverse gap-[1.5rem] xl:flex-nowrap  md:gap-[2rem] xl:justify-between justify-center xl:h-full items-start md:mt-[0rem]  md:items-center text-center xl:text-left w-full mx-auto container xl:px-[5rem]">
         <div className="flex items-center xl:items-start flex-col flex-wrap gap-[1rem]">
           <motion.div
@@ -41,7 +41,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", duration: 0.8, delay: 0.4 }}
+            transition={{ type: "spring", duration: 0.8, delay: 1 }}
           >
             <ProjectButton />
           </motion.div>
@@ -54,7 +54,7 @@ export default function Home() {
             delay: 1,
             ease: [0.25, 0.8, 0.25, 1],
           }}
-          className="relative md:mt-[2rem] xl:mt-[0rem] w-full xl:h-full md:h-[300px] h-[200px] xl:max-w-[1000px] md:max-w-[500px] max-w-[400px]  z-10"
+          className="relative md:mt-[2rem] xl:mt-[0rem] w-full xl:h-full md:h-[300px] h-[200px] xl:max-w-[900px] md:max-w-[500px] max-w-[400px] xl:mr-[2rem] z-10"
         >
           <Image
             src="/devices-view.png"

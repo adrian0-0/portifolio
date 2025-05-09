@@ -19,7 +19,7 @@ const ProjectButton = () => {
           width={300}
           height={300}
           className="animate-[spin_150s_linear_infinite] max-w-[250px] max-h-[250px] min-w-[100px] min-h-[100px] cursor-pointer-none
-"
+          select-none"
         ></Image>
         <div className="absolute w-full h-[10rem] flex justify-center items-center group">
           <MdArrowForwardIos className="text-2xl md:text-4xl group-hover:translate-x-2 transition-all duration-300"></MdArrowForwardIos>

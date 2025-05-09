@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { IMaskInput } from "react-imask";
 import { FaCircleCheck } from "react-icons/fa6";
+import { fadeIn } from "@/configs/fadeIn";
 
 interface IContactForm {
   name: string;
@@ -63,19 +64,7 @@ const Contact = () => {
     defaultValues: formDefaultValues,
   });
 
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        type: "spring",
-        duration: 1.5,
-        delay: 0.8,
-      },
-    },
-  };
-
-  const handleService = (data: IContactForm) => {
+  const handleService = (data: any) => {
     const options = {
       publicKey: "yUbh4kWtj9TvS-kqK",
       limitRate: {
@@ -89,12 +78,12 @@ const Contact = () => {
     };
     const { serviceId, templateId } = emailParams;
     setShowToast(true);
-    // send(serviceId, templateId, data, options);
+    send(serviceId, templateId, data, options);
     reset();
   };
 
   return (
-    <div className="h-full">
+    <div className="md:h-full h-auto md:pb-[0rem] pb-[8rem]">
       <div className="container mx-auto mt-[2rem] md:mt-[0rem]  xl:text-left flex items-center justify-center md:h-[80%] xl:h-full md:w-2/3 xl:w-1/2">
         <div className=" flex flex-col w-full max-w-[700px}">
           <motion.h2
@@ -102,7 +91,7 @@ const Contact = () => {
             variants={fadeIn}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", duration: 1.5, delay: 1 }}
+            transition={{ type: "spring", duration: 1.5, delay: 2 }}
           >
             Se interessou <span className="text-red-500">vamos conversar.</span>
           </motion.h2>
@@ -110,7 +99,7 @@ const Contact = () => {
             variants={fadeIn}
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", duration: 1.5, delay: 0.8 }}
+            transition={{ type: "spring", duration: 1.5, delay: 2 }}
             className="flex-1 flex flex-col gap-[1.5rem] w-full mx-auto"
             onSubmit={handleSubmit(handleService)}
           >

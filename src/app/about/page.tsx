@@ -9,14 +9,14 @@ const About = () => {
   const [isIndex, setIndex] = useState(0);
 
   return (
-    <section className="flex justify-center xl:container md:h-[50%] xl:h-full items-center xl:px-[6rem] xl:pb-[10rem] mb-[18rem]">
+    <section className="flex justify-center xl:container md:h-[85%] xl:h-full items-center xl:px-[6rem] xl:pb-[10rem] pb-[19rem]">
       <div className="flex xl:mt-[0rem] mt-[2rem] md:w-2/3 xl:w-full flex-col xl:flex-row flex-nowrap gap-[2rem]  xl:justify-between xl:items-start">
         <div className="container flex px-[1rem] flex-wrap gap-[2rem]">
           <motion.h2
             className="xl:text-5xl text-2xl font-medium"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", duration: 1.5, delay: 1 }}
+            transition={{ type: "spring", duration: 1.5, delay: 2 }}
           >
             <span className="text-accent">Transformando código em {""}</span>
             Soluções
@@ -25,7 +25,7 @@ const About = () => {
             className="text-justify"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", duration: 1.5, delay: 0.8 }}
+            transition={{ type: "spring", duration: 1.5, delay: 2 }}
           >
             Eu sou um desenvolvedor de software e entusiasta de tecnologia, já
             trabalhei em projetos reais contribuindo ativamente no
@@ -37,7 +37,7 @@ const About = () => {
           className="container flex flex-col w-full xl:max-w-[48%] xl:w-full gap-x-[0.5rem] "
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", duration: 1.5, delay: 0.8 }}
+          transition={{ type: "spring", duration: 1.5, delay: 2 }}
         >
           {/* MENU */}
           <div className="flex  justify-center gap-x-[1rem] xl:gap-[2rem]  xl:mx-[0rem] mb-[1rem] select-none items-end  bg-white/10 backdrop-blur-sm rounded-2xl py-[1rem] pt-[0.25rem]">
