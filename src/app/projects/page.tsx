@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 import { motion } from "framer-motion";
 import { projectsData } from "@/configs/projectsData";
 import { fadeIn } from "@/configs/fadeIn";
+import Image from "next/image";
 
 const Projects = () => {
   return (
@@ -50,8 +51,10 @@ const Projects = () => {
                 className="bg-neutral-900/80 rounded-xl cursor-pointer "
               >
                 <a href="#">
-                  <img
+                  <Image
                     className="rounded-t-lg w-full h-[250px] object-cover"
+                    width={800}
+                    height={400}
                     src={value.img}
                     alt={value.alt}
                   />

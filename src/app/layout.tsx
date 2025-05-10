@@ -21,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`page ${sora.variable} font-sora text-white relative`}>
+      <body
+        className={`page ${sora.variable} font-sora text-white relative overflow-x-hidden`}
+      >
         <Provider>{children}</Provider>
       </body>
     </html>

@@ -48,7 +48,7 @@
 
 @layer base {
   .page {
-    @apply w-full h-screen md:overflow-hidden bg-[url('/bg-black.svg')] bg-no-repeat md:bg-right-top;
+    @apply w-full h-screen md:overflow-hidden bg-[url('/bg-black.svg')] bg-[rgb(26,26,26)] bg-no-repeat md:bg-right-top bg-left-top;
   }
   .card {
     @apply backdrop-blur-lg backdrop-saturate-150 bg-[rgba(17,7,7,0.75)] rounded-xl border border-white/20;

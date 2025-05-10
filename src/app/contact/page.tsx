@@ -84,7 +84,7 @@ const Contact = () => {
 
   return (
     <div className="md:h-full h-auto md:pb-[0rem] pb-[8rem]">
-      <div className="container mx-auto mt-[2rem] md:mt-[0rem]  xl:text-left flex items-center justify-center md:h-[80%] xl:h-full md:w-2/3 xl:w-1/2">
+      <div className=" container mx-auto mt-[2rem] md:mt-[0rem]  xl:text-left flex items-center justify-center md:h-[80%] xl:h-full md:w-2/3 xl:w-1/2">
         <div className=" flex flex-col w-full max-w-[700px}">
           <motion.h2
             className="xl:text-5xl md:text-3xl text-2xl font-medium mb-[2rem] text-center"
