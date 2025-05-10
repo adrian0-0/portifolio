@@ -65,21 +65,26 @@ const Projects = () => {
                   <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 text-justify">
                     {value.description}
                   </p>
-                  <button
-                    className={`btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex
+                  <a
+                    href={value.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button
+                      className={`btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex
                           items-center justify-center overflow-hidden hover:border-accent group mb-[2rem] md:mb-[0rem] ${
                             value.path === "false" ? "hidden" : "inherit"
                           }`}
-                    onClick={() => window.open(value.path, "_blank")}
-                  >
-                    <BsArrowRight
-                      className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0
+                    >
+                      <BsArrowRight
+                        className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0
                             group-hover:opacity-100 transition-all duration-300 absolute text-[22px]"
-                    ></BsArrowRight>
-                    <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
-                      Acesse aqui
-                    </span>
-                  </button>
+                      ></BsArrowRight>
+                      <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
+                        Acesse aqui
+                      </span>
+                    </button>
+                  </a>
                 </div>
               </SwiperSlide>
             ))}
