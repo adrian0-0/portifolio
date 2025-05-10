@@ -1,5 +1,7 @@
+"use client";
+
 import { AnimatePresence, motion } from "framer-motion";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
 import groovyWalkAnimation from "@/animation/groovyWalk.json";
 import React from "react";
 import Header from "./header";
@@ -26,6 +28,8 @@ const transitionVariants = {
 };
 
 const Transiction = ({ children, currentPath }: ITransition) => {
+  const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
+
   return (
     <>
       <AnimatePresence mode="wait">
