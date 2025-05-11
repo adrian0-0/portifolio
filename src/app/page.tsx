@@ -73,7 +73,7 @@ export default function Home() {
             fill
             style={{ objectFit: "contain" }}
             priority
-          ></Image>
+          />
         </motion.div>
       </div>
       <BgParticles />
