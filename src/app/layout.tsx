@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Portfólio Adrian Vinícius",
     images: [
       {
-        url: "https://www.adrianvinicius.com/og-base",
+        url: "https://www.adrianvinicius.com/og-base.png",
         width: 1200,
         height: 630,
         alt: "Preview do portfólio",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Adrian Vinícius Roma Alves | Desenvolvedor Full Stack",
     description:
       "Conheça o portfólio de Adrian Vinícius, com projetos modernos e foco em performance, usabilidade e cloud computing.",
-    images: "https://www.adrianvinicius.com/og-twitter",
+    images: "https://www.adrianvinicius.com/og-twitter.png",
   },
   metadataBase: new URL("https://www.adrianvinicius.com"),
 };
