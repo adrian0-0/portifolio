@@ -20,23 +20,34 @@ export default function Home() {
           >
             <TextAnimation></TextAnimation>
           </motion.div>
-          <p className="xl:text-xl ">
-            Projeto e desenvolvo soluções inovadoras de software
-          </p>
-          <a href="/cv/CV.pdf" target="_blank" className="z-10">
-            <button
-              className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex 
-                      items-center justify-center overflow-hidden hover:border-accent group "
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1 }}
+            className="flex flex-col flex-wrap gap-[1rem]"
+          >
+            <p className="xl:text-xl ">
+              Projeto e desenvolvo soluções inovadoras de software
+            </p>
+            <a
+              href="/cv/CV.pdf"
+              target="_blank"
+              className="z-10 flex justify-center xl:justify-normal"
             >
-              <BsArrowRight
-                className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 
-                        group-hover:opacity-100 transition-all duration-300 absolute text-[22px]"
-              ></BsArrowRight>
-              <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
-                Baixar CV
-              </span>
-            </button>
-          </a>
+              <button
+                className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex
+                        items-center justify-center overflow-hidden hover:border-accent group "
+              >
+                <BsArrowRight
+                  className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0
+                          group-hover:opacity-100 transition-all duration-300 absolute text-[22px]"
+                ></BsArrowRight>
+                <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
+                  Baixar CV
+                </span>
+              </button>
+            </a>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: -40 }}

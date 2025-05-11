@@ -16,18 +16,18 @@ const Projects = () => {
     <div className=" md:pb-[0rem] pb-[8rem] md:h-full h-auto mt-[2rem]">
       <div className="flex flex-col justify-center items-center xl:h-[90%] md:h-[75%] xl:mt-0 ">
         <motion.h2
-          className="xl:text-5xl md:text-4xl text-3xl font-medium md:mb-[1rem]"
+          className="xl:text-5xl md:text-4xl text-3xl font-medium md:mb-[1rem] select-none"
           variants={fadeIn}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", duration: 1.5, delay: 2 }}
+          transition={{ type: "spring", duration: 1.2, delay: 1 }}
         >
           Meus <span className="text-accent">projetos.</span>
         </motion.h2>
         <motion.div
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", duration: 1.5, delay: 2 }}
+          transition={{ type: "spring", duration: 1.2, delay: 1 }}
         >
           <Swiper
             breakpoints={{

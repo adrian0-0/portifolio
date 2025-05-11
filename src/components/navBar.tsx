@@ -44,7 +44,7 @@ const NavBar = () => {
       z-50 top-0 w-full md:w-16 md:max-w-md md:h-screen"
     >
       <div
-        className="flex md:flex-col justify-between md:justify-center items-center flex-wrap gap-y-[3rem] px-[1rem] py-[1.5rem] 
+        className="flex md:flex-col justify-around md:justify-center items-center flex-wrap gap-y-[3rem] py-[1.5rem] 
         md:h-max bg-white/10 backdrop-blur-sm text-3xl md:text-xl md:rounded-full"
       >
         {Array.isArray(navData) &&
