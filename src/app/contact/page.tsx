@@ -64,7 +64,7 @@ const Contact = () => {
     defaultValues: formDefaultValues,
   });
 
-  const handleService = (data: any) => {
+  const handleService = async (data: any) => {
     const options = {
       publicKey: "yUbh4kWtj9TvS-kqK",
       limitRate: {
@@ -78,20 +78,20 @@ const Contact = () => {
     };
     const { serviceId, templateId } = emailParams;
     setShowToast(true);
-    send(serviceId, templateId, data, options);
+    await send(serviceId, templateId, data, options);
     reset();
   };
 
   return (
     <div className="md:h-full h-auto md:pb-[0rem] pb-[8rem]">
-      <div className=" container mx-auto mt-[2rem] md:mt-[0rem]  xl:text-left flex items-center justify-center md:h-[80%] xl:h-full md:w-2/3 xl:w-1/2">
-        <div className=" flex flex-col w-full max-w-[700px}">
+      <div className="container mx-auto mt-[2rem] md:mt-[0rem]  xl:text-left flex items-center justify-center md:h-[80%] xl:h-full md:w-2/3 xl:w-1/2">
+        <div className="flex flex-col w-full max-w-[700px}">
           <motion.h2
-            className="xl:text-5xl md:text-3xl text-2xl font-medium mb-[2rem] text-center"
+            className="xl:text-5xl md:text-3xl text-2xl font-medium mb-[2rem] text-center select-none"
             variants={fadeIn}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", duration: 1.5, delay: 2 }}
+            transition={{ duration: 1.2, delay: 1, type: "spring" }}
           >
             Se interessou <span className="text-red-500">vamos conversar.</span>
           </motion.h2>
@@ -99,11 +99,11 @@ const Contact = () => {
             variants={fadeIn}
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", duration: 1.5, delay: 2 }}
+            transition={{ duration: 1.2, delay: 1, type: "spring" }}
             className="flex-1 flex flex-col gap-[1.5rem] w-full mx-auto"
             onSubmit={handleSubmit(handleService)}
           >
-            <div>
+            <div className="select-none">
               <input
                 {...register("name")}
                 name="name"
@@ -116,7 +116,7 @@ const Contact = () => {
                 </p>
               )}
             </div>
-            <div className="flex xl:flex-row flex-col gap-[1.5rem] w-full">
+            <div className="flex xl:flex-row flex-col gap-[1.5rem] w-full select-none">
               <div className="w-full">
                 <IMaskInput
                   mask="+55 (00) 00000-0000"
@@ -145,7 +145,7 @@ const Contact = () => {
                 )}
               </div>
             </div>
-            <div>
+            <div className="select-none">
               <input
                 {...register("subject")}
                 name="subject"
@@ -158,7 +158,7 @@ const Contact = () => {
                 </p>
               )}
             </div>
-            <div>
+            <div className="select-none">
               <textarea
                 {...register("message")}
                 name="message"
@@ -189,7 +189,7 @@ const Contact = () => {
           variants={fadeIn}
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ type: "spring", duration: 0.5 }}
+          transition={{ duration: 0.5 }}
           className="fixed bottom-4 left-4 bg-green-950 text-white px-4 py-3 rounded-lg shadow-lg flex items-start justify-between min-w-[250px] z-50"
         >
           <div>

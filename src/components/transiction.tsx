@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import Lottie from "lottie-react";
 import dynamic from "next/dynamic";
 import groovyWalkAnimation from "@/animation/groovyWalk.json";
 import React from "react";
@@ -28,49 +29,34 @@ const transitionVariants = {
 };
 
 const Transiction = ({ children, currentPath }: ITransition) => {
-  const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
-
   return (
     <>
       <AnimatePresence mode="wait">
         <motion.div key={currentPath}>
           <motion.div
-            initial={{ opacity: 0 }}
-            variants={transitionVariants}
-            exit={{ opacity: 1 }}
-            transition={{ delay: 0, duration: 0 }}
-            className="fixed top-0 left-0 w-screen h-screen z-50 bg-[rgb(15,6,6)] flex pointer-events-none"
+            initial={{ x: "-100%", y: "-100%", rotate: -45 }}
+            animate={{ x: "100vw", y: "100vh" }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="
+    fixed top-0 left-0
+    w-[250vw] h-[40vh]          
+    md:w-[200vw] md:h-[70vh]     
+    xl:w-[140vw] lg:h-[140vh]    
+    z-50  bg-red-700/70
+  "
           />
-
           <motion.div
-            className="fixed top-0 bottom-0 right-full w-screen h-screen z-50 bg-red-950 flex items-center justify-center flex-col"
-            variants={transitionVariants}
-            initial={"initial"}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ delay: 0, duration: 0.6, ease: "easeInOut" }}
-          >
-            <Lottie
-              animationData={groovyWalkAnimation}
-              className="w-[20rem] h-[20rem]"
-            />
-          </motion.div>
-          <motion.div
-            className="fixed top-0 bottom-0 right-full w-screen h-screen z-40 bg-red-900"
-            variants={transitionVariants}
-            initial={"initial"}
-            animate="animate"
-            exit="exit"
-            transition={{ delay: 0.4, duration: 0.6, ease: "easeInOut" }}
-          ></motion.div>
-          <motion.div
-            className="fixed top-0 bottom-0 right-full w-screen h-screen z-30 bg-red-800"
-            variants={transitionVariants}
-            initial={"initial"}
-            animate="animate"
-            exit="exit"
-            transition={{ delay: 0.6, duration: 0.6, ease: "easeInOut" }}
-          ></motion.div>
+            initial={{ x: "100%", y: "100%", rotate: -45 }}
+            animate={{ x: "-100vw", y: "-100vh" }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="
+    fixed bottom-0 right-0
+    w-[250vw] h-[40vh]          
+    md:w-[200vw] md:h-[70vh]     
+    xl:w-[140vw] lg:h-[140vh]    
+    z-50  bg-red-900/70
+  "
+          />
         </motion.div>
       </AnimatePresence>
       <Header></Header>
