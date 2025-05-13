@@ -10,17 +10,17 @@ export const projectsData = [
   },
   {
     name: "Plataforma de agendamento de reunião",
-    description: `Criação de uma plataforma de agendamento de reunião que teria por objetivo simplificar os processos de tabelação
-      em excel em um única plataforma onde poderia se verificar quem agendou a reunião, os convidados e o processo de andamento da
-      reunião e também o encaminhamento do link da reunião via integração com a API do Zoom.`,
+    description: `Criação de uma plataforma de agendamento de reunião que tem por objetivo simplificar os processos de tabelação em 
+    excel em um única plataforma onde pode se verificar quem agendou a reunião, os convidados e o processo de andamento da reunião e 
+    também o encaminhamento do link da reunião via integração com a API do Zoom.`,
     path: "false",
     img: "/nest-js-logo.png",
     alt: "NestJS",
   },
   {
     name: "Maranhão Gestão",
-    description: `Desenvolvimento de uma landing page de evento, onde o objetivo da página era conduzir leads a se 
-      inscreverem e participarem do evento sendo também divulgado nele as logomarcas das empresas patrocinadoras do evento.`,
+    description: `Desenvolvimento de uma landing page de evento, onde o objetivo da página é conduzir leads a se inscreverem e 
+    participarem do evento, sendo também divulgado nela as logomarcas das empresas patrocinadoras do evento.`,
     path: "https://magestao.inaed.com/",
     img: "/magestao.png",
     alt: "Landing page do Maranhão Gestão",
