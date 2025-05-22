@@ -22,7 +22,7 @@ const Projects = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", duration: 1.2, delay: 1 }}
         >
-          Meus <span className="text-accent">projetos.</span>
+          Trabalhos <span className="text-accent">realizados.</span>
         </motion.h2>
         <motion.div
           initial={{ opacity: 0, y: -40 }}
