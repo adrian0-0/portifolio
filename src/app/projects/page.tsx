@@ -2,7 +2,12 @@
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
+import {
+  EffectCoverflow,
+  Navigation,
+  Pagination,
+  Autoplay,
+} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
@@ -34,38 +39,28 @@ const Projects = () => {
             effect={"coverflow"}
             centeredSlides={true}
             breakpoints={{
-              320: { slidesPerView: 1, spaceBetween: 15 },
-              1024: {
+              1200: {
                 slidesPerView: 2,
-
-                spaceBetween: 15,
-              },
-              1600: {
-                slidesPerView: 3,
-                spaceBetween: 15,
+                spaceBetween: 80,
               },
             }}
             coverflowEffect={{
               rotate: 0,
               stretch: 0,
-              depth: 150,
-              modifier: 2.5,
-              slideShadows: true,
+              depth: 50,
+              modifier: 4,
+              slideShadows: false,
             }}
             autoplay={{ delay: 3000, disableOnInteraction: true }}
             loop={true}
+            speed={1000}
             pagination={{
               type: "bullets",
             }}
-            navigation={{
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-            }}
-            modules={[Pagination, EffectCoverflow, Navigation]}
-            className="swiper_wrap container max-w-[350px] md:max-w-[550px] lg:max-w-[800px] xl:max-w-[1300px] mt-[1rem]"
+            navigation={true}
+            modules={[Pagination, EffectCoverflow, Navigation, Autoplay]}
+            className="swiper_wrap container max-w-[350px] md:max-w-[550px] lg:max-w-[800px] xl:max-w-[1000px] mt-[1rem]"
           >
-            <div className="swiper-button-prev "></div>
-            <div className="swiper-button-next"></div>
             {projectsData.map((value, index) => (
               <SwiperSlide
                 key={index}
