@@ -26,6 +26,13 @@
 .swiper-button-prev:after,
 .swiper-button-next:after,
 .swiper-rtl .swiper-button-prev:after {
+  position: absolute;
+  bottom: 100px;
+  color: #fff;
+}
+
+.swiper-button-next:hover:after,
+.swiper-button-prev:hover:after {
   color: #f13024;
 }
 
@@ -48,7 +55,7 @@
 
 @layer base {
   .page {
-    @apply w-full h-screen md:overflow-hidden bg-[url('/bg-black.svg')] bg-[rgb(26,26,26)] bg-no-repeat md:bg-inherit bg-left-top;
+    @apply w-full h-screen bg-[url('/bg-black.svg')] bg-[rgb(26,26,26)] bg-no-repeat md:bg-inherit bg-left-top;
   }
   .card {
     @apply backdrop-blur-lg backdrop-saturate-150 bg-[rgba(17,7,7,0.75)] rounded-xl border border-white/20;
