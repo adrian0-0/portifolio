@@ -2,10 +2,11 @@
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 import { motion } from "framer-motion";
 import { projectsData } from "@/configs/projectsData";
 import { fadeIn } from "@/configs/fadeIn";
@@ -14,7 +15,7 @@ import Image from "next/image";
 const Projects = () => {
   return (
     <div className=" md:pb-[0rem] pb-[8rem] md:h-full h-auto mt-[2rem]">
-      <div className="flex flex-col justify-center items-center xl:h-[90%] md:h-[75%] xl:mt-0 ">
+      <div className="flex flex-col justify-center items-center xl:h-[90%] md:h-[75%] xl:mt-0">
         <motion.h2
           className="xl:text-5xl md:text-4xl text-3xl font-medium md:mb-[1rem] select-none"
           variants={fadeIn}
@@ -30,25 +31,45 @@ const Projects = () => {
           transition={{ type: "spring", duration: 1.2, delay: 1 }}
         >
           <Swiper
+            effect={"coverflow"}
+            centeredSlides={true}
             breakpoints={{
               320: { slidesPerView: 1, spaceBetween: 15 },
               1024: {
                 slidesPerView: 2,
+
                 spaceBetween: 15,
               },
-              1850: {
+              1600: {
                 slidesPerView: 3,
                 spaceBetween: 15,
               },
             }}
-            pagination={true}
-            modules={[Pagination]}
-            className="container max-w-[350px] md:max-w-[550px] lg:max-w-[800px] xl:max-w-[1400px] mt-[1rem] "
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 150,
+              modifier: 2.5,
+              slideShadows: true,
+            }}
+            autoplay={{ delay: 3000, disableOnInteraction: true }}
+            loop={true}
+            pagination={{
+              type: "bullets",
+            }}
+            navigation={{
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            }}
+            modules={[Pagination, EffectCoverflow, Navigation]}
+            className="swiper_wrap container max-w-[350px] md:max-w-[550px] lg:max-w-[800px] xl:max-w-[1300px] mt-[1rem]"
           >
+            <div className="swiper-button-prev "></div>
+            <div className="swiper-button-next"></div>
             {projectsData.map((value, index) => (
               <SwiperSlide
                 key={index}
-                className="bg-neutral-900/80 rounded-xl cursor-pointer "
+                className="bg-neutral-900 rounded-xl cursor-pointer"
               >
                 <a href="#">
                   <Image
@@ -68,26 +89,24 @@ const Projects = () => {
                   <p className="mb-3 font-normal text-justify">
                     {value.description}
                   </p>
-                  <a
-                    href={value.path}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <button
-                      className={`btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex
+
+                  <button
+                    className={`btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex
                           items-center justify-center overflow-hidden hover:border-accent group mb-[2rem] md:mb-[0rem] ${
                             value.path === "false" ? "hidden" : "inherit"
                           }`}
-                    >
-                      <BsArrowRight
-                        className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0
+                    onClick={() =>
+                      window.open(value.path, "_blank", "noopener,noreferrer")
+                    }
+                  >
+                    <BsArrowRight
+                      className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0
                             group-hover:opacity-100 transition-all duration-300 absolute text-[22px]"
-                      ></BsArrowRight>
-                      <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
-                        Acesse aqui
-                      </span>
-                    </button>
-                  </a>
+                    ></BsArrowRight>
+                    <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
+                      Acesse aqui
+                    </span>
+                  </button>
                 </div>
               </SwiperSlide>
             ))}

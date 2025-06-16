@@ -9,7 +9,7 @@ import { BsArrowRight } from "react-icons/bs";
 
 export default function Home() {
   return (
-    <section className="xl:h-full md:h-[80%] mt-[1rem] md:mt-[0rem] md:pb-[0rem] pb-[8rem] overflow-hidden">
+    <section className="xl:h-full md:h-[80%] mt-[1rem] md:mt-[0rem] md:pb-[0rem] pb-[8rem] ">
       <div className="flex flex-wrap-reverse gap-[1.5rem] xl:flex-nowrap  md:gap-[2rem] xl:justify-between justify-center xl:h-full items-start md:mt-[0rem]  md:items-center text-center xl:text-left w-full mx-auto container xl:px-[5rem]">
         <div className="flex items-center xl:items-start flex-col flex-wrap gap-[1rem]">
           <motion.div
