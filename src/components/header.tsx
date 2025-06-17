@@ -18,7 +18,7 @@ const Header = () => {
       </div>
       <nav className="flex flex-wrap gap-[1rem] z-10 mt-[1rem]">
         <a
-          href="https://wa.me/5598987886697?text=Olá! Vi o seu site e tenho interesse nos seus serviços, gostaria de conversar melhor a respeito."
+          href="https://wa.me/5598987886697"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-accent transition-all duration-300"
