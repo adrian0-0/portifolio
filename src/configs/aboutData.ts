@@ -20,7 +20,7 @@ export const aboutData = [
     title: "Trabalho",
     info: [
       {
-        title: "Injetronic - Analista de TI",
+        title: "Injetronic - Analista de Sistemas",
         stage: "Maio de 2025 • Trabalho Atual",
       },
       {
